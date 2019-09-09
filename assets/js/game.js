@@ -13,7 +13,7 @@ var pastGuessesText = document.getElementById("past-guesses");
 var winsText = document.getElementById("wins");
 var lossesText = document.getElementById("losses");
 
-document.getElementById("directions").textContent = "Press any key to get started!";
+document.getElementById("directions").textContent = "Guess what letter I'm thinking of";
 document.getElementById("current-letter").textContent = "";
 document.getElementById("attempts-remaining").textContent = "Attempts Remaining: " + attemptsRemaining;
 document.getElementById("wins").textContent = "Wins: " + wins;
