@@ -4,17 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Linking CSS -->
+    <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
+    <!-- Linking Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cyborg/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Linking Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Mystery+Quest|Roboto+Mono&display=swap" rel="stylesheet">
+    
     <title>Psychic Game</title>
 </head>
 <body>
     <div>
-        <h1>The Psychic Game</h1>
-        <p id="directions"></p>
-        <p id="current-letter"></p>
-        <p id="wins"></p>
-        <p id="losses"></p>
-        <p id="attempts-remaining"></p>
-        <p id="past-guesses"></p>
+        <h1 class= "text-center">The Psychic Game</h1>
+        <div class="alert alert-color text-center">
+            <h4 class="alert-heading">Warning!</h4>
+            <p class="mb-0">Proceed Only If You Dare...Your Objective: Guess the letter I'm thinking, but watch out! You've only got 6 Lives</p>
+        </div>
+        <div class= "container">
+            <div class="jumbotron w-75 p-3 mx-auto">
+                <div class= "row">
+                    <div class="col-md">
+                        <h4 class= "text-center" id="directions"></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5 class= "text-center" id="wins"></h5>
+                        <h5 class= "text-center" id="losses"></h5>
+                        <h5 class= "text-center" id="attempts-remaining"></h5>
+                    </div>
+                    <div class="col-md-6">
+                        <div class= "dot">
+                        <h3 class= "text-center correct-guess" id="current-letter"></h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class= "text-center" id="past-guesses"></h5>
+                    </div>
+                </div>
+
+        
+                    
+                </div>
+        </div>
+
+
         <script type="text/javascript" src="assets/js/game.js"></script>
     </div>
 </body>

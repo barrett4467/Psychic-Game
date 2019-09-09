@@ -14,55 +14,62 @@ var winsText = document.getElementById("wins");
 var lossesText = document.getElementById("losses");
 
 document.getElementById("directions").textContent = "Press any key to get started!";
-document.getElementById("current-letter").textContent = "Current Letter: ";
+document.getElementById("current-letter").textContent = "";
 document.getElementById("attempts-remaining").textContent = "Attempts Remaining: " + attemptsRemaining;
 document.getElementById("wins").textContent = "Wins: " + wins;
 document.getElementById("losses").textContent = "Losses: " + losses;
 document.getElementById("past-guesses").textContent = "Letters Guessed: " + pastGuesses;
 
 function reset (){
-    alert("Next Round!");
+    alert("Next Round!!");
     attemptsRemaining = 10;
-    pastGuesses = 0;
-    document.getElementById("current-letter").textContent = "Current Letter: ";
+    pastGuesses = [];
+    document.getElementById("current-letter").textContent = "";
     currentLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 }
 
 document.onkeyup = function(event) {
     var letterGuessed = event.key; //key user presses 
     for (i = 0; i < currentLetter.length; i++) {
-        console.log(currentLetter);
-        if (currentLetter === letterGuessed){
-            alert("You Did It!!");
-            document.getElementById("current-letter").textContent = "Current Letter: " + letterGuessed;
-            document.getElementById("wins").textContent = wins++;
-            reset();
-        } else if (currentLetter != letterGuessed){
-            var holder = [];
-            pastGuesses.push(letterGuessed);
-            
-            document.getElementById("attempts-remaining").textContent = attemptsRemaining--
-            document.getElementById("past-guesses").textContent = pastGuesses[i];
-                //probs an appendChild somewhere in here 
-
-        } else {
-            alert("Loser, Loser!!");
-        }
-
-        if (attemptsRemaining === 0){
-            document.getElementById("losses").textContent = losses++;
-            document.getElementById("current-letter").textContent = "Current Letter: " + currentLetter;
-            alert("You're not as psychic as you thought!! The letter was: " + currentLetter);
-            reset();
-        }
-
-        directionsText.textContent = "Press any key to get started!";
-        pastGuessesText.textContent = "Letters Guessed: " + pastGuesses;
-        attemptsRemainingText.textContent = "Attempts Remaining: " + attemptsRemaining;
-        winsText.textContent = "Wins: " + wins;
-        lossesText.textContent = "Losses: " + losses;
+        // var letter = alphabet;
+        // if (letterGuessed === letter) {
+            console.log(currentLetter);
+            if (currentLetter === letterGuessed){
+                alert("You Did It!!");
+                document.getElementById("current-letter").textContent =  letterGuessed;
+                document.getElementById("wins").textContent = wins++;
+                setTimeout(function(){ reset(); }, 3000);
+            } else if (currentLetter != letterGuessed){
+                var holder = [];
+                pastGuesses.push(letterGuessed);
+                
+                document.getElementById("attempts-remaining").textContent = attemptsRemaining--
+                document.getElementById("past-guesses").textContent = pastGuesses[i];
+                    //probs an appendChild somewhere in here 
     
+            } else {
+                alert("Loser, Loser!!");
+            }
+    
+            if (attemptsRemaining === 0){
+                document.getElementById("losses").textContent = losses++;
+                document.getElementById("current-letter").textContent = currentLetter;
+                alert("You're not as psychic as you thought!! The letter was: " + currentLetter);
+                setTimeout(function(){ reset(); }, 3000);
+            }
+    
+            directionsText.textContent = "Press any key to get started!";
+            pastGuessesText.textContent = "Letters Guessed: " + pastGuesses;
+            attemptsRemainingText.textContent = "Attempts Remaining: " + attemptsRemaining;
+            winsText.textContent = "Wins: " + wins;
+            lossesText.textContent = "Losses: " + losses;
+        
+        // } else{
+        // alert("Invalid Key! Try again!!");
+        // } 
     }
+    
 
+  
 }
 

@@ -1,0 +1,26 @@
+.dot {
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+    background-color: #bbb;
+    border-radius: 50%;
+    
+  }
+  body {
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  .alert-color {
+    background-color: #6432a8; 
+  }
+
+  .correct-guess {
+    color: #fff;
+    font-family: 'Mystery Quest', cursive;
+    position: relative;
+    top: 2rem;
+    font-size: 17rem;
+  }
+  h1, h4, h5, h3 {
+    font-family: 'Cinzel', serif;
+  }
