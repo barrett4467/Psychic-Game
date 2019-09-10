@@ -20,17 +20,26 @@ document.getElementById("wins").textContent = "Wins: " + wins;
 document.getElementById("losses").textContent = "Losses: " + losses;
 document.getElementById("past-guesses").textContent = "Letters Guessed: " + pastGuesses;
 
+function empty(){
+    pastGuesses.length = 0;
+}
+
 function reset (){
     alert("Next Round!!");
     attemptsRemaining = 10;
-    pastGuesses = [];
     document.getElementById("current-letter").textContent = "";
+    empty();
     currentLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 }
 
+
+
 document.onkeyup = function(event) {
     var letterGuessed = event.key; //key user presses 
-    for (i = 0; i < currentLetter.length; i++) {
+    
+
+    if (letterGuessed === "a" || letterGuessed === "b" || letterGuessed === "c" || letterGuessed === "d" || letterGuessed === "e" || letterGuessed === "f" || letterGuessed === "g" || letterGuessed === "h" || letterGuessed === "i" || letterGuessed === "j" || letterGuessed === "k" || letterGuessed === "l" || letterGuessed === "m" || letterGuessed === "n" || letterGuessed === "o" || letterGuessed === "p" || letterGuessed === "q" || letterGuessed === "r" || letterGuessed === "s" || letterGuessed === "t" || letterGuessed === "u" || letterGuessed === "v" || letterGuessed === "w" || letterGuessed === "x" || letterGuessed === "y" || letterGuessed ==="z"){
+        for (i = 0; i < currentLetter.length; i++) {
         // var letter = alphabet;
         // if (letterGuessed === letter) {
             console.log(currentLetter);
@@ -39,17 +48,14 @@ document.onkeyup = function(event) {
                 document.getElementById("current-letter").textContent =  letterGuessed;
                 document.getElementById("wins").textContent = wins++;
                 setTimeout(function(){ reset(); }, 3000);
+
             } else if (currentLetter != letterGuessed){
-                var holder = [];
                 pastGuesses.push(letterGuessed);
-                
                 document.getElementById("attempts-remaining").textContent = attemptsRemaining--
                 document.getElementById("past-guesses").textContent = pastGuesses[i];
                     
     
-            } else {
-                alert("Loser, Loser!!");
-            }
+            } 
     
             if (attemptsRemaining === 0){
                 document.getElementById("losses").textContent = losses++;
@@ -63,13 +69,14 @@ document.onkeyup = function(event) {
             attemptsRemainingText.textContent = "Attempts Remaining: " + attemptsRemaining;
             winsText.textContent = "Wins: " + wins;
             lossesText.textContent = "Losses: " + losses;
-        
-        // } else{
-        // alert("Invalid Key! Try again!!");
-        // } 
-    }
+        }
+    } else{
+        alert("Invalid Key! Try again!!");
+    } 
+}
+
     
 
   
-}
+
 
