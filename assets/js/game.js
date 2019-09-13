@@ -47,16 +47,26 @@ document.onkeyup = function(event) {
                 alert("You Did It!!");
                 document.getElementById("current-letter").textContent =  letterGuessed;
                 document.getElementById("wins").textContent = wins++;
-                setTimeout(function(){ reset(); }, 3000);
+                setTimeout(function(){ reset(); }, 6000);
 
             } else if (currentLetter != letterGuessed){
-                pastGuesses.push(letterGuessed);
-                document.getElementById("attempts-remaining").textContent = attemptsRemaining--
-                document.getElementById("past-guesses").textContent = pastGuesses[i];
+
+                
+                if (letterGuessed === pastGuesses[i]){
+                    for (i = 0; i < pastGuesses.length; i++){
+                    document.getElementById("past-guesses").textContent = pastGuesses[i];
+                    console.log(pastGuesses.length);
+                    }
+                    } else {
+                        pastGuesses.push(letterGuessed);
+                        document.getElementById("attempts-remaining").textContent = attemptsRemaining--
+                         document.getElementById("past-guesses").textContent = pastGuesses[i];
+                }
+                   
                     
     
             } 
-    
+
             if (attemptsRemaining === 0){
                 document.getElementById("losses").textContent = losses++;
                 document.getElementById("current-letter").textContent = currentLetter;
@@ -71,7 +81,7 @@ document.onkeyup = function(event) {
             lossesText.textContent = "Losses: " + losses;
         }
     } else{
-        alert("Invalid Key! Try again!!");
+        // alert("Invalid Key! Try again!!");
     } 
 }
 
